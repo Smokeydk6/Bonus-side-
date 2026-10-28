@@ -192,6 +192,22 @@ def collect_bonuses(sources: list[dict[str, object]] = SOURCES) -> list[dict[str
 
 def write_bonuses(bonuses: list[dict[str, object]], output_file: Path = OUTPUT_FILE) -> None:
     output_file.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        previous_bonuses = json.loads(output_file.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        previous_bonuses = []
+
+    if isinstance(previous_bonuses, list):
+        previous_by_id = {bonus.get("id"): bonus for bonus in previous_bonuses if isinstance(bonus, dict)}
+        for bonus in bonuses:
+            previous = previous_by_id.get(bonus.get("id"))
+            if not previous:
+                continue
+            previous_data = {key: value for key, value in previous.items() if key != "createdAt"}
+            current_data = {key: value for key, value in bonus.items() if key != "createdAt"}
+            if previous_data == current_data and previous.get("createdAt"):
+                bonus["createdAt"] = previous["createdAt"]
+
     temporary_file = output_file.with_suffix(output_file.suffix + ".tmp")
     temporary_file.write_text(json.dumps(bonuses, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temporary_file.replace(output_file)

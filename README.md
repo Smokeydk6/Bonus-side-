@@ -22,6 +22,14 @@ Hvis en kilde fejler, eller ingen bonuskort kan parses, fejler scriptet uden at 
 
 Scraperen kan ikke vide, om en bonus reelt er dansk-licenseret, eller om bonusvilkår stadig gælder. Den henter de oplysninger, der vises af kilden; kontrollér licens, tilbud og vilkår før publicering.
 
+## Offentlig side
+
+Pages-jobbet i `.github/workflows/update.yml` udgiver kun `index.html`, `style.css`, `script.js` og `bonuses.json`. Admin-siden og login-scriptet er ikke med i Pages-artifactet. Workflowet deployer efter push til `main`, manuelt fra Actions og efter bonusopdateringen.
+
+Sæt repositoryets Pages build source til **GitHub Actions**, og push til `main`. Den offentlige adresse er `https://smokeydk6.github.io/Bonus-side-/`. Scraperens workflow skal have `contents: write`; branch protection må ikke blokere bot-commits.
+
+Admin-siden er fortsat kun til lokal demo på `/admin.html` via en lokal server. Den er ikke en hosted adminløsning og skal have en backend med rigtig adgangskontrol, før den eventuelt udgives separat.
+
 ## Filer
 
 - `index.html`: Offentlig bonusoversigt.
@@ -33,7 +41,8 @@ Scraperen kan ikke vide, om en bonus reelt er dansk-licenseret, eller om bonusvi
 - `requirements.txt`: Python-afhængigheder.
 - `bonuses.json`: Datafeed til forsiden.
 - `.github/workflows/update.yml`: Kører scraperen hver sjette time og committer ændringer.
+- `.github/workflows/deploy-pages.yml`: Udgiver kun den offentlige forside og bonusdata.
 
 ## Før offentlig brug
 
-Dette er en frontend-demo, ikke et sikkert administrationssystem. Adgangskoden i `auth.js` kan ses i browseren, og `localStorage` kan redigeres af brugeren. Brug serverbaseret login, database og adgangskontrol før siden offentliggøres. Kontrollér også licens, bonusvilkår, links og gældende markedsføringsregler for hvert tilbud.
+Admin-login er kun en lokal demo: adgangskoden i `auth.js` kan ses i browseren, og `localStorage` kan redigeres af brugeren. Admin er derfor ikke med i den offentlige Pages-side. Kontrollér licens, bonusvilkår, links og gældende markedsføringsregler for hvert tilbud.

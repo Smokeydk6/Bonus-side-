@@ -1,12 +1,17 @@
 name: Update bonus data
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: update-bonus-data
@@ -41,3 +46,32 @@ jobs:
           git add bonuses.json
           git commit -m "Update bonus data"
           git push
+
+  deploy-pages:
+    needs: update-bonuses
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Assemble public site
+        run: |
+          mkdir _site
+          cp index.html style.css script.js bonuses.json _site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
