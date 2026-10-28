@@ -1,1 +1,97 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101611">
+  <meta name="description" content="Sammenlign casino-bonusser, free spins og vilkår. Spil ansvarligt og vær 18+. ">
+  <title>Bonusblik | Sammenlign casino-bonusser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Bonusblik, forsiden">
+      <span class="brand-mark" aria-hidden="true">b.</span>
+      <span>bonusblik<span class="wordmark-dot">.</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Hovednavigation">
+      <a class="nav-link is-current" href="index.html">Bonusser</a>
+      <a class="nav-link" href="#ansvarlig">Spil ansvarligt</a>
+      <a class="nav-admin" href="admin.html"><span aria-hidden="true">↗</span> Admin</a>
+    </nav>
+  </header>
 
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> BONUSOVERSIGT <span class="eyebrow-date" id="updated-label">OPDATERES LØBENDE</span></p>
+        <h1 id="page-title">Bonusser, der<br><span>giver mening.</span></h1>
+        <p class="intro-text">Sammenlign velkomstbonusser og free spins. Læs altid vilkårene, før du spiller.</p>
+      </div>
+      <div class="intro-stamp" aria-label="18 plus, spil med omtanke">
+        <span class="stamp-age">18<span>+</span></span>
+        <span class="stamp-rule"></span>
+        <span class="stamp-copy">SPIL MED<br>OMTANKE</span>
+      </div>
+    </section>
+
+    <section class="bonus-section" aria-labelledby="bonus-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">FIND DIT MATCH</p>
+          <h2 id="bonus-heading">Bonusoversigt <span class="result-count" id="result-count">0</span></h2>
+        </div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <span class="visually-hidden">Søg efter casino eller bonus</span>
+          <input id="bonus-search" type="search" placeholder="Søg casino eller bonus..." autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+      </div>
+
+      <div class="toolbar">
+        <div class="filter-group" role="group" aria-label="Filtrer bonusser">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Alle bonusser</button>
+          <button class="filter-button" type="button" data-filter="new" aria-pressed="false">Nye bonusser <span class="filter-spark" aria-hidden="true">✳</span></button>
+          <button class="filter-button" type="button" data-filter="spins" aria-pressed="false">Free spins</button>
+        </div>
+        <span class="demo-note"><span class="demo-dot"></span> EKSTERNE DATA</span>
+      </div>
+
+      <div class="demo-banner" role="note">
+        <span class="demo-banner-icon" aria-hidden="true">i</span>
+        <p>Bonusdata hentes fra GratisDeals. Licensbadget er kildens oplysning, ikke en uafhængig kontrol. Links kan være reklame.</p>
+      </div>
+
+      <div class="bonus-grid" id="bonus-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-icon" aria-hidden="true">⌕</span>
+        <h3>Ingen bonusser fundet</h3>
+        <p>Prøv en anden søgning eller vælg et andet filter.</p>
+        <button class="text-button" id="clear-search" type="button">Nulstil filtre</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="ansvarlig">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="wordmark" href="index.html"><span class="brand-mark" aria-hidden="true">b.</span><span>bonusblik<span class="wordmark-dot">.</span></span></a>
+        <p>Spil for underholdningens skyld.<br>Ikke for at vinde penge tilbage.</p>
+      </div>
+      <div class="footer-responsible">
+        <span class="footer-18" aria-label="18 plus">18<span>+</span></span>
+        <div>
+          <strong>Spil ansvarligt</strong>
+          <p>Spil er kun for personer over 18 år. Sæt grænser, og spil aldrig for mere, end du har råd til at tabe. Har du brug for hjælp, besøg <a href="https://www.stopspillet.dk/" target="_blank" rel="noopener noreferrer">StopSpillet.dk</a>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>Bonusdata fra GratisDeals. Vilkår og tilgængelighed kan ændres.</span><a href="admin.html">Administration ↗</a></div>
+  </footer>
+</body>
+</html>
