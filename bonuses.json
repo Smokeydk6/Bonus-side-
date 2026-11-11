@@ -14,6 +14,48 @@
     "isDemo": false
   },
   {
+    "id": "scraped-a07a7781b49dafca",
+    "casinoName": "CampoBet",
+    "offer": "100% op til 1.000 kr.",
+    "freeSpins": null,
+    "wagering": "10 x",
+    "url": "https://gratisdeals.dk/go/campobet/",
+    "isNew": false,
+    "licenseVerified": false,
+    "licenseClaimedBySource": true,
+    "isSponsored": true,
+    "createdAt": "2026-11-11T23:49:23.711578+00:00",
+    "isDemo": false
+  },
+  {
+    "id": "scraped-9cadd011c8f45f69",
+    "casinoName": "Betinia",
+    "offer": "100% op til 1.000 kr.",
+    "freeSpins": null,
+    "wagering": "10 x",
+    "url": "https://gratisdeals.dk/go/betinia/",
+    "isNew": false,
+    "licenseVerified": false,
+    "licenseClaimedBySource": true,
+    "isSponsored": true,
+    "createdAt": "2026-11-11T23:49:23.712358+00:00",
+    "isDemo": false
+  },
+  {
+    "id": "scraped-3004254f883a84b4",
+    "casinoName": "CasinoMoto",
+    "offer": "100% op til 1.000 kr.",
+    "freeSpins": null,
+    "wagering": "10 x",
+    "url": "https://gratisdeals.dk/go/casinomoto/",
+    "isNew": false,
+    "licenseVerified": false,
+    "licenseClaimedBySource": true,
+    "isSponsored": true,
+    "createdAt": "2026-11-11T23:49:23.713176+00:00",
+    "isDemo": false
+  },
+  {
     "id": "scraped-28e4cdbe46190a79",
     "casinoName": "Betoro",
     "offer": "100% op til 1.000 kr.",
